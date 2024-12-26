@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cool Website</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .profile-picture {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+        .name {
+            margin-top: 10px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .about-me {
+            text-align: center;
+        }
+        .sparkle {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: radial-gradient(circle, rgb(255, 50, 255) 50%, transparent 50%); /* Changed color to purple */
+            border-radius: 50%;
+            pointer-events: none;
+            animation: sparkle-animation 0.6s ease-out;
+            opacity: 0;
+        }
+        @keyframes sparkle-animation {
+            0% {
+                transform: scale(0);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1.5);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Sushi's Fun Depot</div>
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="nomnom.html">Noms</a></li>
+                <li><a href="pictures.html">LA24</a></li>
+                <li><a href="annarbor.html">AA24</a></li>
+                <li><a href="aa25.html">AA25</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="hero">
+        <div class="hero-content">
+            <h1 style="text-shadow: 2px 2px 0px #000, -2px -2px 0px #000, 2px -2px 0px #000, -2px 2px 0px #000;">Welcome to Sushi's Fun Depot</h1>
+            <p>May your coffee be hot and your eyeliner even.</p>
+            <a href="pictures.html" class="btn">View Pictures</a>
+        </div>
+    </section>
+    <section class="content">
+        <h2>About Me</h2>
+        <p>Just a girl with a knack for cooking, reading, and journaling.</p>
+        <div class="about-me">
+            <img src="images/prof-pic.png" alt="Profile Picture" class="profile-picture">
+            <div class="name">XOXO Sushrita</div>
+        </div>
+    </section>
+    <footer>
+        <p>&copy; 2024 Sushi's Fun Depot. All rights reserved.</p>
+    </footer>
+    <script>
+        document.addEventListener('mousemove', function(e) {
+            createSparkle(e.clientX, e.clientY);
+        });
+
+        function createSparkle(x, y) {
+            const sparkle = document.createElement('div');
+            sparkle.classList.add('sparkle');
+            sparkle.style.left = `${x}px`;
+            sparkle.style.top = `${y}px`;
+            document.body.appendChild(sparkle);
+
+            sparkle.addEventListener('animationend', () => {
+                sparkle.remove();
+            });
+        }
+    </script>
+</body>
+</html>
